@@ -1,14 +1,19 @@
-import { useState } from 'react'
-
+import { ApolloProvider } from "@apollo/client";
+import { BrowserRouter } from "react-router-dom";
+import { client } from "./lib/apollo";
+import { Event } from "./page/Event";
+import { Router } from "./Router";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-         <h1>Olá</h1>
-    </div>
-  )
+    <>
+      <ApolloProvider client={client}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </ApolloProvider>
+    </>
+  );
 }
 
-export default App
+export default App;
